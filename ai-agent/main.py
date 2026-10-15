@@ -4,6 +4,31 @@ import httpx
 
 app = FastAPI(title="WAVES - Agente de IA (Simplificação Textual)")
 
+OLLAMA_MODEL = "llama3.2:1b"
+
+
+@app.get("/health")
+async def verificar_saude():
+    """Verifica disponibilidade sem executar inferência nem alterar /simplify."""
+    try:
+        async with httpx.AsyncClient(timeout=2.0) as client:
+            resposta = await client.get("http://localhost:11434/api/tags")
+            resposta.raise_for_status()
+            dados = resposta.json()
+            modelos = dados.get("models", [])
+            modelo_disponivel = any(
+                isinstance(modelo, dict)
+                and OLLAMA_MODEL in (modelo.get("name"), modelo.get("model"))
+                for modelo in modelos
+            )
+            return {
+                "status": "available" if modelo_disponivel else "unavailable",
+                "ollama": True,
+                "model": modelo_disponivel,
+            }
+    except (httpx.HTTPError, ValueError, TypeError, AttributeError):
+        return {"status": "unavailable", "ollama": False, "model": False}
+
 class RequisicaoTexto(BaseModel):
     texto: str = Field(..., min_length=10, description="Texto original extraído da página web")
 
@@ -33,7 +58,7 @@ Texto a ser analisado:
     url_ollama = "http://localhost:11434/api/generate"
     
     payload = {
-        "model": "llama3.2:1b", 
+        "model": OLLAMA_MODEL,
         "prompt": prompt_sistema,
         "stream": False,
         "format": "json",

@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "minimum_chrome_version": "120",
+  "name": "Waves — Acessibilidade",
+  "version": "0.1.0",
+  "description": "Tradução para Libras e simplificação de textos com preferências de leitura.",
+  "permissions": ["storage"],
+  "host_permissions": ["http://localhost:8000/*", "https://traducao2.vlibras.gov.br/*"],
+  "action": {"default_title": "Waves", "default_popup": "popup.html", "default_icon": {"16":"assets/icon-16.png","48":"assets/icon-48.png","128":"assets/icon-128.png"}},
+  "icons": {"16":"assets/icon-16.png","48":"assets/icon-48.png","128":"assets/icon-128.png"},
+  "background": {"service_worker": "background.js", "type": "module"},
+  "content_scripts": [{"matches": ["http://*/*", "https://*/*"], "js": ["content.js"], "run_at": "document_idle", "all_frames": false}],
+  "web_accessible_resources": [{"resources": ["assets/fonts/*", "avatar/*"], "matches": ["http://*/*", "https://*/*"]}],
+  "sandbox": {"pages": ["avatar/index.html"]},
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'none';",
+    "sandbox": "sandbox allow-scripts; default-src 'none'; script-src 'self' 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' blob:; worker-src blob:; connect-src https://dicionario2.vlibras.gov.br chrome-extension:; img-src data: blob:; style-src 'unsafe-inline';"
+  }
+}

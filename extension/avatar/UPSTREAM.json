@@ -1,0 +1,26 @@
+{
+  "repository": "https://github.com/spbgovbr-vlibras/vlibras-web-browsers",
+  "commit": "d292d369419196b6e8ba826d674f5d3b4bcefa9a",
+  "files": [
+    {
+      "file": "unity-loader.js",
+      "sha256": "c1845b1e35a2784f237391802e36009872d9ae587a94c2ee5a66546696af4a88",
+      "upstreamGitBlob": "7003ff39b96fc86e1684dcd5e9f614ae72ad848e"
+    },
+    {
+      "file": "playerweb.data.unityweb",
+      "sha256": "0c9897ea830739a09a8a2d132e219761d7017b22feae5ec9b2feb4ed075b1256",
+      "upstreamGitBlob": "1c9b23678c2e084cb0543d3382a0c1c90ef0fb9d"
+    },
+    {
+      "file": "playerweb.wasm.code.unityweb",
+      "sha256": "4005cfe27f5252c8dafaccbca4c1338de9491c5076a62da8df2bfd036d6eeb4e",
+      "upstreamGitBlob": "7f765ea65ad7b8021621466a99d8d2f307c00ef1"
+    },
+    {
+      "file": "playerweb.wasm.framework.unityweb",
+      "sha256": "7177d7748ffd7715e1150e202924f3d502df7531b672ccf6a39291cf8ccba3fb",
+      "upstreamGitBlob": "cd7e3ff490bb18d384f6a54d5715d5409e074312"
+    }
+  ]
+}

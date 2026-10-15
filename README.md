@@ -1,4 +1,8 @@
 # Waves
+
+A implementação da extensão para Chrome e Edge está em [`extension/`](extension/README.md).
+Consulte esse documento para gerar o pacote, carregar a extensão e executar os testes.
+
 ### **1. Objetivo do Projeto**
 
 Desenvolver uma extensão para navegadores web que promova a acessibilidade digital para a comunidade surda e pessoas com déficits de leitura/compreensão. A ferramenta permitirá a tradução dinâmica de conteúdos em texto para a Língua Brasileira de Sinais (Libras) em qualquer site, além de oferecer a simplificação de textos complexos por meio de Inteligência Artificial.
