@@ -1,5 +1,9 @@
 # Waves
 
+**Primeira instalação após clonar ou fazer pull?** Siga o
+[guia de instalação e primeiro uso](GUIA_INSTALACAO.md), com instruções para
+macOS, Linux e Windows, configuração do Ollama e instalação no navegador.
+
 A implementação da extensão para Chrome e Edge está em [`extension/`](extension/README.md).
 Consulte esse documento para gerar o pacote, carregar a extensão e executar os testes.
 

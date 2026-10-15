@@ -6,6 +6,10 @@ controles por teclado e alvos de 48 px.
 
 ## Instalar para desenvolvimento
 
+Para configurar tudo a partir de um clone limpo, siga o
+[guia de instalação e primeiro uso](../GUIA_INSTALACAO.md), incluindo Python,
+Ollama e instruções para Windows, macOS e Linux.
+
 Requer Node.js 22 ou superior e npm (ou pnpm).
 
 ```sh
@@ -18,11 +22,12 @@ No Chrome, abrir `chrome://extensions`; no Edge, `edge://extensions`. Ativar o
 modo de desenvolvedor e carregar **a pasta `extension/dist`** como extensão sem
 compactação. Após atualizar o build, recarregar a extensão e as páginas já abertas.
 
-Para simplificação, executar a API existente com Ollama e `llama3.2:1b` instalados:
+Para simplificação, preparar o ambiente Python e instalar `llama3.2:1b` conforme
+o guia. Com o Ollama em execução, a partir da **raiz do repositório**, iniciar a
+API usando o ambiente virtual (macOS/Linux):
 
 ```sh
-cd ai-agent
-uvicorn main:app --reload --host 127.0.0.1 --port 8000
+.venv/bin/python -m uvicorn main:app --app-dir ai-agent --host 127.0.0.1 --port 8000
 ```
 
 Selecionar texto em uma página HTTP/HTTPS e escolher uma ação. A API local não
